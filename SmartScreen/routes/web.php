@@ -14,3 +14,9 @@
 Route::get('/', function () {
     return view('home');
 });
+
+Route::resource('product', 'ProductController');
+Route::resource('tag', 'TagController');
+
+Route::get('/pt', 'ProductController@getProductsByTag');
+
