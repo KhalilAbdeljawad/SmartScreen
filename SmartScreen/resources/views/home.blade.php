@@ -20,6 +20,7 @@
 
 			<div class="card">
 				<div class="card_part card_part-one">
+					<img src= "{{ url('../public/img/ads/burger.jpg') }}" alt="">
 				</div>
 				
 				<div class="card_part card_part-two">
