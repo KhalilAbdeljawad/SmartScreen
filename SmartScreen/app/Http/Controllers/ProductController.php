@@ -104,7 +104,8 @@ class ProductController extends Controller
 			$product->image = $name;
 		}
 
-		$product->name = $name;
+		$product->name = $request->name;
+		$product->price = $request->get('price');
 		$product->description = $request->get('description');
 		$product->save();
 		return back()->with('success', 'Your article has been added successfully. Please wait for the admin to approve.');
