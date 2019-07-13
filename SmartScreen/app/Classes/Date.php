@@ -15,13 +15,18 @@ class Date
 
 	public function getTags(){
 
-		return [$this->getDayOfWeek($this->date), $this->getSeason($this->date)];
+		if($this->getDayOfWeek($this->date)==null)
+			return [$this->getSeason($this->date)];
+		else
+			return [$this->getDayOfWeek($this->date), $this->getSeason($this->date)];
 
 	}
 
 	function getDayOfWeek($date){
 		$dayOfWeek = date("l", strtotime($date));
-		return $dayOfWeek;
+		if($dayOfWeek == 'Saturday' or $dayOfWeek == 'Sunday')
+			return "weekend";
+		return null;
 	}
 
 	function getSeason($date){

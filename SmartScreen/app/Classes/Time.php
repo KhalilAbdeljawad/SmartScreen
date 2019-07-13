@@ -4,7 +4,7 @@
 namespace App\Classes;
 
 
-class Hour
+class Time
 {
 	private $hour;
 

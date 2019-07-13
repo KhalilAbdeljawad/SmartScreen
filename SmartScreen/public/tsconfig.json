@@ -1,0 +1,16 @@
+[
+  {
+    "name": "time",
+    "value": "12"
+  },
+
+  {
+    "name": "date",
+    "value": "2019-07-22"
+  },
+
+  {
+    "name": "temperature",
+    "value": "25"
+  }
+]
