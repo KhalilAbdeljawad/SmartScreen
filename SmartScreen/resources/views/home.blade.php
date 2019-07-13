@@ -17,30 +17,37 @@
 	<div class="container">
 	<div class="row p-5" >
 		<div class="col-6" id="frame">
-
 			<div class="card">
-				<div class="card_part card_part-one">
-					<img src= "{{ url('../public/img/ads/burger.jpg') }}" alt="">
+				<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+					<div class="carousel-inner">
+						<div class="carousel-item active">
+							<img class="d-block w-100" src="{{ url('img/ads/burger.jpg') }}" alt="First slide">
+						</div>
+						<div class="carousel-item">
+							<img class="d-block w-100" src="..." alt="Second slide">
+						</div>
+						<div class="carousel-item">
+							<img class="d-block w-100" src="..." alt="Third slide">
+						</div>
+					</div>
 				</div>
-				
-				<div class="card_part card_part-two">
-				</div>
-				
-				<div class="card_part card_part-three">
-				</div>
-				
-				<div class="card_part card_part-four">
-				</div>
-				
 			</div>
 		</div>
-		<div class="col-6 p-5">
+		<div class="col-6">
 			<div class="row">
-				<textarea placeholder="This is an awesome comment box" rows="20" name="comment[text]" id="comment_text" cols="40" class="ui-autocomplete-input" autocomplete="off" role="textbox" aria-autocomplete="list" aria-haspopup="true"></textarea>
+				<div class="col-12">
+					<h1>Enter Json code here:</h1>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-12">
+					<textarea placeholder="This is an awesome comment box" rows="20" name="comment[text]" id="comment_text" cols="40" class="ui-autocomplete-input" autocomplete="off" role="textbox" aria-autocomplete="list" aria-haspopup="true"></textarea>
+				</div>
 			</div>		
 		</div>
 	</div>
 </div>
+
 </body>
 
 </html>

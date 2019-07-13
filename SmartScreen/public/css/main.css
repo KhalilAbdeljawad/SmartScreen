@@ -59,7 +59,6 @@ textarea:focus
 
 #frame
 {
-	height: 100%;     
 	position: relative;
 	border: solid 15px #3c3c3c;
 	width: 600px;
@@ -69,6 +68,7 @@ textarea:focus
 	box-shadow: 0px 4px 10px #3c3c3c;
 	background-color: #3c3c3c;
 }
+
 .row 
 {
 	height: 100%;
@@ -112,9 +112,11 @@ textarea:focus
   
   animation: opaqTransition 28s cubic-bezier(0, 0, 0, 0.97) infinite;
 }
+
 img
 {
-	object-fit: contain;
+	object-fit: cover;
+	height: 100%;
 }
 
 
