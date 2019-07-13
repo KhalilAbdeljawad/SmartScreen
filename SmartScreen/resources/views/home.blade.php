@@ -36,17 +36,14 @@
 		<div class="col-6">
 			<div class="row">
 				<div class="col-12">
-					<h1>Enter Json code here:</h1>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-12">
+					<h1 class="pb-5">Enter Json code here:</h1>
 					<textarea placeholder="This is an awesome comment box" rows="20" name="comment[text]" id="comment_text" cols="40" class="ui-autocomplete-input" autocomplete="off" role="textbox" aria-autocomplete="list" aria-haspopup="true"></textarea>
 				</div>
-			</div>		
+			</div>	
 		</div>
 	</div>
 </div>
+
 
 </body>
 
