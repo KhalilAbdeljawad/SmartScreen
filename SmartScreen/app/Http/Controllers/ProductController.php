@@ -58,7 +58,34 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
+
+	    $this->validate($request, [
+		    'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+	    ]);
+
 	    $product = new Product;
+
+	    if ($request->hasFile('image')) {
+		    $image = $request->file('image');
+		    $name = str_slug($request->name).'.'.$image->getClientOriginalExtension();
+		    $destinationPath = public_path('/img/products/');
+		    $imagePath = $destinationPath. "/".  $name;
+		    $image->move($destinationPath, $name);
+		    $product->image = $name;
+	    }
+		return $product;
+	    $product->title = $request->get('title');
+	    $product->category_id = $request->get('category_id');
+	    // $article->image = str_slug($request->get('image'));
+	    $product->subtitle = $request->get('subtitle');
+	    $product->description = $request->get('description');
+
+	    $product->save();
+	    return back()->with('success', 'Your article has been added successfully. Please wait for the admin to approve.');
+
+
+
+
 
 	    $product->name = 'IceCream';
 	    $product->description = 'Good Ice cream';
