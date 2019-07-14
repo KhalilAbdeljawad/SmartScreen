@@ -94,21 +94,24 @@ class ProductController extends Controller
 
 		$product = new Product;
 
-		if ($request->hasFile('image'))
-		{
-			$image = $request->file('image');
-			$name = str_slug($request->name) . '.' . $image->getClientOriginalExtension();
-			$destinationPath = public_path('/img/products/');
-			$imagePath = $destinationPath . "/" . $name;
-			$image->move($destinationPath, $name);
-			$product->image = $name;
-		}
-
 		$product->name = $request->name;
 		$product->price = $request->get('price');
 		$product->description = $request->get('description');
 		$product->save();
-		return back()->with('success', 'Your article has been added successfully. Please wait for the admin to approve.');
+		if ($request->hasFile('image'))
+		{
+			$image = $request->file('image');
+			$name = $product->id . '.' . $image->getClientOriginalExtension();
+			$destinationPath = public_path('/img/products/');
+			$imagePath = $destinationPath . "/" . $name;
+			$image->move($destinationPath, $name);
+			$product->image = $name;
+			$product->save();
+		}
+
+
+
+		return back()->with('success', 'Your product has been added successfully.');
 
 
 		$product->name = 'IceCream';

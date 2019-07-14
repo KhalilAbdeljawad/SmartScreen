@@ -21,6 +21,11 @@
 
     <h1 class="pb-5">Enter a product</h1>
     <div class="inner contact">
+        @if(session()->has('message'))
+            <div class="alert alert-success">
+                {{ session()->get('success') }}
+            </div>
+        @endif
         <!-- Form Area -->
         <div class="contact-form">
             <!-- Form -->
