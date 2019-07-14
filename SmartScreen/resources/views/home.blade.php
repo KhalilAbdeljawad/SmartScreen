@@ -37,7 +37,7 @@
 			<div class="row">
 				<div class="col-12">
 					<h1 class="pb-5">Enter Json code here:</h1>
-					<textarea placeholder="This is an awesome comment box" rows = "50" cols = "100" name="comment[text]" id="comment_text" class="ui-autocomplete-input" autocomplete="off" role="textbox" aria-autocomplete="list" aria-haspopup="true"></textarea>
+					<textarea placeholder="This is an awesome comment box" rows = "300" cols = "150" name="comment[text]" id="comment_text" class="ui-autocomplete-input" autocomplete="off" role="textbox" aria-autocomplete="list" aria-haspopup="true"></textarea>
 					<button type="text" id="run_button" name="goHome" onclick="document.location='{{ url('/') }}'" class="form-btn semibold">run</button>				
 				</div>
 			</div>

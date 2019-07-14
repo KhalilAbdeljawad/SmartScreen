@@ -58,10 +58,13 @@ class ProductController extends Controller
 		$products = [];
 		foreach ($tags as $tag)
 		{
-			array_push($products, Product::whereHas('tags', function ($query) use(&$tag)
+			$data = Product::with('tags')->whereHas('tags', function ($query) use(&$tag)
 			{
 				$query->where('name', '=', $tag);
-			})->get());
+			})->get();
+			if(!empty($data[0]))
+				foreach ($data as $datum)
+					array_push($products, $datum);
 		}
 
 		return $products;
@@ -98,6 +101,15 @@ class ProductController extends Controller
 		$product->price = $request->get('price');
 		$product->description = $request->get('description');
 		$product->save();
+
+		$tags = explode(',', $request->get('tags'));
+		$tagsIds=[];
+		foreach ($tags as $tag){
+			$t = Tag::firstOrCreate(['name' => $tags]);
+			array_push($tagsIds, $t->id);
+		}
+		$product->tags()->attach($tagsIds);
+
 		if ($request->hasFile('image'))
 		{
 			$image = $request->file('image');
