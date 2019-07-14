@@ -29,7 +29,9 @@ class ProductController extends Controller
 
 	// Doing all the work using the other functions
 	public function getProductsToShow(Request $request){
-		$data = json_decode($request['json_data']);
+	//	file_put_contents("e:\\ttt.txt",json_encode($request->input()));
+		$data = json_decode($request['json_data'])->data;
+		//return $request['json_data'];
 
 		$tags = [];
 		foreach ($data as $datum)
@@ -46,7 +48,7 @@ class ProductController extends Controller
 		$result = $this->sortProductsByTags($tags, $products);
 
 
-		return $result;
+		return json_encode($result);
 		//return Date::getSeason("2019-07-13");
 	}
 	/**

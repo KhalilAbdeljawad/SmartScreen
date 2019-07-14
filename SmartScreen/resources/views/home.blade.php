@@ -37,7 +37,8 @@
 				<div class="col-12">
 					<h3 class="pb-5">Input JSON object here:</h3>
 					<textarea placeholder="JSON Object" rows = "23" cols = "50" name="comment[text]" id="comment_text" class="ui-autocomplete-input" autocomplete="off" role="textbox" aria-autocomplete="list" aria-haspopup="true">
-[
+{
+"data":[
 	{
 		"name": "time",
 		"value": "12"
@@ -57,7 +58,7 @@
 		"value": "10"
 	}
 ]
-					</textarea>
+}					</textarea>
 
 				</div>
 			</div>
@@ -71,16 +72,19 @@
 	{
 		$("#run_button").click(function (e) 
 		{
-			var josn_data = $(comment_text).val();
-
-			$.post("{{ route('get-products') }}", { josn_data:josn_data }, function (data, status) {
+			var json_data = $(comment_text).val();
+			var json_data = json_data.replace(/\+/g,'');
+			$.post("{{ route('get-products') }}", { json_data:json_data }, function (data, status) {
 				response = JSON.parse(data)
 
-				for (let index in response){
-					console.log(response[index])
-					// $(.carousel-inner).append('<div class="carousel-item">
-					// 		<img class="d-block w-100" src="{{ url('img/products/'+ product.image) }}">
-					// 	</div>')
+				let i=1;
+				for (let product of response){
+					console.log(product)
+					if(i==1)
+						$('.carousel-inner').append('<div class="carousel-item active"><img class="d-block w-100" src="{{ url('img/products' )}}/'+product.image+'")></div>')
+					else $('.carousel-inner').append('<div class="carousel-item"><img class="d-block w-100" src="{{ url('img/products' )}}/'+product.image+'")></div>')
+					i=i+1;
+
 				}
 			})
 		});
