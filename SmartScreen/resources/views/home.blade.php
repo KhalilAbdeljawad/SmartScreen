@@ -11,6 +11,7 @@
 	crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="{{ url('js/main.js') }}">
+	<script>alert(9)</script>
 </head>
   
 <body>
@@ -38,7 +39,7 @@
 				<div class="col-12">
 					<h1 class="pb-5">Enter Json code here:</h1>
 					<textarea placeholder="This is an awesome comment box" rows = "50" cols = "100" name="comment[text]" id="comment_text" class="ui-autocomplete-input" autocomplete="off" role="textbox" aria-autocomplete="list" aria-haspopup="true"></textarea>
-					<button type="text" id="run_button" name="goHome" onclick="document.location='{{ url('/') }}'" class="form-btn semibold">Run</button>				
+					<button type="text" id="run_button" name="goHome" class="form-btn semibold">Run</button>				
 				</div>
 			</div>
 		</div>
@@ -47,7 +48,36 @@
 </div>
 
 
-
+<script>
+		alert('this')
+			//document.addEventListener('DOMContentLoaded', function(e) 
+			$(document).ready(function()
+			{
+				 
+				
+				$("#run_button").click(function (e) 
+				{
+					e.preventDefault();
+					var text_data = $(comment_text).val();
+					console.log(text_data)
+		
+					$.post(route, text_data, function (data, status) {
+						
+						response = JSON.parse(data)
+					}
+				});
+		
+				$('#run_button').click(function(){
+		
+					
+		
+				})
+			}, false);
+		
+			
+			
+		
+		</script>
 </body>
 
 </html>
