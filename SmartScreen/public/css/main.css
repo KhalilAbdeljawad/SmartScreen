@@ -166,6 +166,14 @@ img
     margin:25px auto 0;
   }
 
+
+#run_button{
+	margin-top: 50px;
+}
+/* #product_button{
+	margin-bottom: 50px;
+} */
+
 /* Input Styles */
 
   .form{
@@ -192,7 +200,7 @@ img
   }
 
   .textarea{
-    height: 200px;
+    height: 800px;
     max-height: 200px;
     max-width: 100%;
   }
@@ -229,7 +237,7 @@ img
     height: auto;
     padding:15px;
     color:#fff;
-    background:#8BC3A3;
+    background:#111;
     border:none;
     border-radius:3px;
     outline: none;
@@ -243,7 +251,7 @@ img
   }
 
   .form-btn:hover{
-    background:#111;
+    background:#8BC3A3;
     color: white;
     border:none;
   }

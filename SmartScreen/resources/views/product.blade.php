@@ -21,7 +21,7 @@
 
     <h1 class="pb-5">Enter a product</h1>
     <div class="inner contact">
-        @if(session()->has('message'))
+        @if(session()->has('success'))
             <div class="alert alert-success">
                 {{ session()->get('success') }}
             </div>
@@ -53,7 +53,7 @@
                 <!-- Clear -->
                 <div class="clear"></div>
             </form>
-
+            <button type="text" id="home_button" name="goHome" onclick="document.location='{{ url('/') }}'" class="form-btn semibold">go home</button>
             <!-- Your Mail Message -->
             <div class="mail-message-area">
                 <!-- Message -->
