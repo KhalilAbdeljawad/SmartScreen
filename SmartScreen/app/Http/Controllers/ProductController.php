@@ -21,23 +21,11 @@ class ProductController extends Controller
 	public function index()
 	{
 		//
-		$data = json_decode('[
-  {
-    "name": "time",
-    "value": "12"
-  },
 
-  {
-    "name": "date",
-    "value": "2019-07-13"
-  },
+	}
 
-  {
-    "name": "temperature",
-    "value": "30"
-  }
-]
-');
+	public function getProductsToShow($json){
+		$data = json_decode($json);
 
 		$tags = [];
 		foreach ($data as $datum)
@@ -51,16 +39,18 @@ class ProductController extends Controller
 		$products = $this->getProductsByTag($tags);
 
 		//return $products;
+		$result = $this->sortProductsByTags($tags, $products);
 
-		return $this->sortProductsByTags($tags, $products);
+
+		return $result;
 		//return Date::getSeason("2019-07-13");
 	}
-
 	/**
 	 *
 	 */
 
 	public function sortProductsByTags($tags, $products){
+		$products = array_unique($products);
 		$productsArray=[];
 		foreach ($products as $key => $value)
 		{
@@ -75,7 +65,25 @@ class ProductController extends Controller
 				}
 			}
 		}
-		return $productsArray;
+
+		$sortedValues = $productsArray;
+		rsort($sortedValues);
+		$sortedValues = array_unique($sortedValues);
+
+		$sortedArray = [];
+
+		foreach ($sortedValues as $value)
+		{
+			foreach ($productsArray as $key => $val)
+			{
+				if($val == $value)
+					array_push($sortedArray, $products[$key]);
+			}
+		}
+		return $sortedArray;
+
+//		return $sortValues;
+//		return $productsArray;
 	}
 
 	/**

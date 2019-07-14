@@ -20,3 +20,4 @@ Route::resource('tag', 'TagController');
 
 Route::get('/pt', 'ProductController@getProductsByTag');
 
+Route::post('/getProducts', 'ProductController@getProductsToShow')->name('get-products');
