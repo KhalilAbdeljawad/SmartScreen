@@ -46,26 +46,26 @@
 				<div class="col-12">
 					<h3 class="pb-5">Input JSON object here:</h3>
 					<textarea placeholder="JSON Object" rows = "23" cols = "50" name="comment[text]" id="comment_text" class="ui-autocomplete-input" autocomplete="off" role="textbox" aria-autocomplete="list" aria-haspopup="true">
-							[
-								{
-								  "name": "time",
-								  "value": "12"
-								},
-							  
-								{
-								  "name": "date",
-								  "value": "2019-07-13"
-								},
-							  
-								{
-								  "name": "temperature",
-								  "value": "30"
-								},
-								{
-								  "name": "time",
-								  "value": "10"
-								}
-							]
+[
+	{
+		"name": "time",
+		"value": "12"
+	},
+	
+	{
+		"name": "date",
+		"value": "2019-07-13"
+	},
+	
+	{
+		"name": "temperature",
+		"value": "30"
+	},
+	{
+		"name": "time",
+		"value": "10"
+	}
+]
 					</textarea>
 
 				</div>
@@ -78,13 +78,11 @@
 	document.addEventListener('DOMContentLoaded', function(e) 
 	//$(document).ready(function()
 	{
-		alert('asd')
 		$("#run_button").click(function (e) 
 		{
-			var text_data = $(comment_text).val();
-			console.log(text_data)
+			var josn_data = $(comment_text).val();
 
-			$.post("{{ route('get-products') }}", text_data, function (data, status) {
+			$.post("{{ route('get-products') }}", { josn_data:josn_data }, function (data, status) {
 				
 				response = JSON.parse(data)
 			})
