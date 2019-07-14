@@ -14,6 +14,9 @@ class ProductController extends Controller
 	/**
 	 * Developed by Khalil Abdeljawad
 	 * For Insider PHP Hackathon
+	 *
+	 * Product
+	 *
 	 * Display a listing of the resource.
 	 *
 	 * @return \Illuminate\Http\Response
@@ -24,8 +27,8 @@ class ProductController extends Controller
 
 	}
 
-	public function getProductsToShow($json){
-		$data = json_decode($json);
+	public function getProductsToShow(Request $request){
+		$data = json_decode($request['json_data']);
 
 		$tags = [];
 		foreach ($data as $datum)
