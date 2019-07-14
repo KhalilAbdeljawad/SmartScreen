@@ -32,7 +32,7 @@ class ProductController extends Controller
 
   {
     "name": "temperature",
-    "value": "25"
+    "value": "30"
   }
 ]
 ');
@@ -46,7 +46,8 @@ class ProductController extends Controller
 				array_push($tags, $value);
 		}
 		//return $tags;
-		return $this->getProductsByTag($tags);
+		$products = $this->getProductsByTag($tags);
+		return $products;
 		//return Date::getSeason("2019-07-13");
 	}
 
@@ -105,7 +106,7 @@ class ProductController extends Controller
 		$tags = explode(',', $request->get('tags'));
 		$tagsIds=[];
 		foreach ($tags as $tag){
-			$t = Tag::firstOrCreate(['name' => $tags]);
+			$t = Tag::firstOrCreate(['name' => trim($tag)]);
 			array_push($tagsIds, $t->id);
 		}
 		$product->tags()->attach($tagsIds);
