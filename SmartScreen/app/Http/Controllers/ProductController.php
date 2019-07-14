@@ -47,8 +47,33 @@ class ProductController extends Controller
 		}
 		//return $tags;
 		$products = $this->getProductsByTag($tags);
-		return $products;
+
+		//return $products;
+
+		return $this->sortProductsByTags($tags, $products);
 		//return Date::getSeason("2019-07-13");
+	}
+
+	/**
+	 *
+	 */
+
+	public function sortProductsByTags($tags, $products){
+		$productsArray=[];
+		foreach ($products as $key => $value)
+		{
+			$productsArray[$key]= 0;
+
+			foreach ($value->tags as $k => $v)
+			{
+
+				if(in_array($v->name, $tags)){
+
+					$productsArray[$key] = $productsArray[$key]+1;
+				}
+			}
+		}
+		return $productsArray;
 	}
 
 	/**
