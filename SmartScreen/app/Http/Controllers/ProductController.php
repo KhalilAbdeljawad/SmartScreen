@@ -15,7 +15,7 @@ class ProductController extends Controller
 	 * Developed by Khalil Abdeljawad
 	 * For Insider PHP Hackathon
 	 *
-	 * Product
+	 * Product marketing software
 	 *
 	 * Display a listing of the resource.
 	 *
@@ -27,6 +27,7 @@ class ProductController extends Controller
 
 	}
 
+	// Doing all the work using the other functions
 	public function getProductsToShow(Request $request){
 		$data = json_decode($request['json_data']);
 
@@ -49,7 +50,7 @@ class ProductController extends Controller
 		//return Date::getSeason("2019-07-13");
 	}
 	/**
-	 *
+	 * Sorts product according the number of selected tags
 	 */
 
 	public function sortProductsByTags($tags, $products){
@@ -90,7 +91,8 @@ class ProductController extends Controller
 	}
 
 	/**
-	 *
+	 * Get products with their tags from data base based on $tags array
+	 * param : $tags array
 	 */
 	public function getProductsByTag($tags)
 	{
