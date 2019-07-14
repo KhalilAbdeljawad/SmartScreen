@@ -6,6 +6,11 @@ namespace App\Classes;
 
 class Time
 {
+	/**
+	 * Developed by Khalil Abdeljawad
+	 * For Insider PHP Hackathon
+	 */
+
 	private $hour;
 
 	public function __construct($time)

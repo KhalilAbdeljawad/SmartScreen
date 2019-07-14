@@ -12,6 +12,8 @@ use App\Classes\Date;
 class ProductController extends Controller
 {
 	/**
+	 * Developed by Khalil Abdeljawad
+	 * For Insider PHP Hackathon
 	 * Display a listing of the resource.
 	 *
 	 * @return \Illuminate\Http\Response

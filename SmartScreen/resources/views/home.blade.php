@@ -11,43 +11,52 @@
 	crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="{{ url('js/main.js') }}">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 </head>
   
 <body>
-	<div class="container">
-	<div class="row p-5" >
-		<div class="col-6" id="frame">
+
+	<div class="row p-5"  >
+		<div class="col-5" id="frame">
 			<div class="card">
 				<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
 					<div class="carousel-inner">
 						<div class="carousel-item active">
-							<img class="d-block w-100" src="{{ url('img/ads/burger.jpg') }}" alt="First slide">
+							<img class="d-block w-100" src="{{ url('img/products/27.jpg') }}" alt="First slide">
 						</div>
 						<div class="carousel-item">
-							<img class="d-block w-100" src="..." alt="Second slide">
+							<img class="d-block w-100" src="{{ url('img/products/28.jpg') }}" alt="Second slide">
 						</div>
 						<div class="carousel-item">
-							<img class="d-block w-100" src="..." alt="Third slide">
+							<img class="d-block w-100" src="{{ url('img/products/29.jpg') }}" alt="Third slide">
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-		<div class="col-6">
+		<div class="col-2" >
+
+			<button style="margin-top: 200px" type="text" id="run_button" name="goHome" onclick="document.location='{{ url('/') }}'" class="form-btn semibold">
+				<i class="fa fa-arrow-left"></i>
+				Run</button>
+		</div>
+		<div class="col-5 align-content-center m5"  >
 			<div class="row">
 				<div class="col-12">
-					<h1 class="pb-5">Enter Json code here:</h1>
-					<textarea placeholder="This is an awesome comment box" rows = "50" cols = "100" name="comment[text]" id="comment_text" class="ui-autocomplete-input" autocomplete="off" role="textbox" aria-autocomplete="list" aria-haspopup="true"></textarea>
-					<button type="text" id="run_button" name="goHome" onclick="document.location='{{ url('/') }}'" class="form-btn semibold">Run</button>				
+					<h3 class="pb-5">Input JSON object here:</h3>
+					<textarea placeholder="JSON Object" rows = "23" cols = "50" name="comment[text]" id="comment_text" class="ui-autocomplete-input" autocomplete="off" role="textbox" aria-autocomplete="list" aria-haspopup="true"></textarea>
+
 				</div>
 			</div>
+
 		</div>
 	</div>
-	<button type="text" id="product_button" name="goProduct" onclick="document.location='{{ url('/product/create') }}'" class="form-btn semibold">Add product</button>
+
 </div>
 
 
-
+{{--	<button type="text" id="product_button" name="goProduct" onclick="document.location='{{ url('/product/create') }}'" class="form-btn semibold">Add product</button>--}}
 </body>
 
 </html>

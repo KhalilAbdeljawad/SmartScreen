@@ -6,6 +6,11 @@ use App\Classes\Data;
 use App\Classes\Time;
 class DataConverter
 {
+	/**
+	 * Developed by Khalil Abdeljawad
+	 * For Insider PHP Hackathon
+	 */
+
 	var  $data;
 	public function __construct(Data $data)
 	{
