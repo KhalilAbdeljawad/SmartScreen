@@ -6,6 +6,11 @@ namespace App\Classes;
 
 class Temperature
 {
+	/**
+	 * Developed by Khalil Abdeljawad
+	 * For Insider PHP Hackathon
+	 */
+
 	private $temperature;
 
 	public function __construct($temperature)

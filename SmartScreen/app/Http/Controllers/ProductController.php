@@ -12,6 +12,8 @@ use App\Classes\Date;
 class ProductController extends Controller
 {
 	/**
+	 * Developed by Khalil Abdeljawad
+	 * For Insider PHP Hackathon
 	 * Display a listing of the resource.
 	 *
 	 * @return \Illuminate\Http\Response
@@ -32,7 +34,7 @@ class ProductController extends Controller
 
   {
     "name": "temperature",
-    "value": "25"
+    "value": "30"
   }
 ]
 ');
@@ -46,8 +48,34 @@ class ProductController extends Controller
 				array_push($tags, $value);
 		}
 		//return $tags;
-		return $this->getProductsByTag($tags);
+		$products = $this->getProductsByTag($tags);
+
+		//return $products;
+
+		return $this->sortProductsByTags($tags, $products);
 		//return Date::getSeason("2019-07-13");
+	}
+
+	/**
+	 *
+	 */
+
+	public function sortProductsByTags($tags, $products){
+		$productsArray=[];
+		foreach ($products as $key => $value)
+		{
+			$productsArray[$key]= 0;
+
+			foreach ($value->tags as $k => $v)
+			{
+
+				if(in_array($v->name, $tags)){
+
+					$productsArray[$key] = $productsArray[$key]+1;
+				}
+			}
+		}
+		return $productsArray;
 	}
 
 	/**
@@ -105,7 +133,7 @@ class ProductController extends Controller
 		$tags = explode(',', $request->get('tags'));
 		$tagsIds=[];
 		foreach ($tags as $tag){
-			$t = Tag::firstOrCreate(['name' => $tags]);
+			$t = Tag::firstOrCreate(['name' => trim($tag)]);
 			array_push($tagsIds, $t->id);
 		}
 		$product->tags()->attach($tagsIds);

@@ -6,6 +6,10 @@ namespace App\Classes;
 
 class Date
 {
+	/**
+	 * Developed by Khalil Abdeljawad
+	 * For Insider PHP Hackathon
+	 */
 	private $date;
 
 	public function __construct($date)

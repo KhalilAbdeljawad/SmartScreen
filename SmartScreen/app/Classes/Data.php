@@ -6,6 +6,11 @@ namespace App\Classes;
 
 class Data
 {
+	/**
+	 * Developed by Khalil Abdeljawad
+	 * For Insider PHP Hackathon
+	 */
+
 	private $name;
 	private $value;
 
