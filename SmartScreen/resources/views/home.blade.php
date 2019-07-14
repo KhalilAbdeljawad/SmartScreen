@@ -22,15 +22,6 @@
 			<div class="card">
 				<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
 					<div class="carousel-inner">
-						<div class="carousel-item active">
-							<img class="d-block w-100" src="{{ url('img/products/27.jpg') }}" alt="First slide">
-						</div>
-						<div class="carousel-item">
-							<img class="d-block w-100" src="{{ url('img/products/28.jpg') }}" alt="Second slide">
-						</div>
-						<div class="carousel-item">
-							<img class="d-block w-100" src="{{ url('img/products/29.jpg') }}" alt="Third slide">
-						</div>
 					</div>
 				</div>
 			</div>
@@ -83,8 +74,14 @@
 			var josn_data = $(comment_text).val();
 
 			$.post("{{ route('get-products') }}", { josn_data:josn_data }, function (data, status) {
-				
 				response = JSON.parse(data)
+
+				for (let index in response){
+					console.log(response[index])
+					// $(.carousel-inner).append('<div class="carousel-item">
+					// 		<img class="d-block w-100" src="{{ url('img/products/'+ product.image) }}">
+					// 	</div>')
+				}
 			})
 		});
 	}, false);
