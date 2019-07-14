@@ -37,7 +37,7 @@
 		</div>
 		<div class="col-2" >
 
-			<button style="margin-top: 200px" type="text" id="run_button" name="goHome" onclick="document.location='{{ url('/') }}'" class="form-btn semibold">
+			<button style="margin-top: 200px" type="text" id="run_button" name="goHome" class="form-btn semibold">
 				<i class="fa fa-arrow-left"></i>
 				Run</button>
 		</div>
@@ -45,7 +45,28 @@
 			<div class="row">
 				<div class="col-12">
 					<h3 class="pb-5">Input JSON object here:</h3>
-					<textarea placeholder="JSON Object" rows = "23" cols = "50" name="comment[text]" id="comment_text" class="ui-autocomplete-input" autocomplete="off" role="textbox" aria-autocomplete="list" aria-haspopup="true"></textarea>
+					<textarea placeholder="JSON Object" rows = "23" cols = "50" name="comment[text]" id="comment_text" class="ui-autocomplete-input" autocomplete="off" role="textbox" aria-autocomplete="list" aria-haspopup="true">
+							[
+								{
+								  "name": "time",
+								  "value": "12"
+								},
+							  
+								{
+								  "name": "date",
+								  "value": "2019-07-13"
+								},
+							  
+								{
+								  "name": "temperature",
+								  "value": "30"
+								},
+								{
+								  "name": "time",
+								  "value": "10"
+								}
+							]
+					</textarea>
 
 				</div>
 			</div>
@@ -53,10 +74,24 @@
 		</div>
 	</div>
 
-</div>
+<script>
+	document.addEventListener('DOMContentLoaded', function(e) 
+	//$(document).ready(function()
+	{
+		alert('asd')
+		$("#run_button").click(function (e) 
+		{
+			var text_data = $(comment_text).val();
+			console.log(text_data)
 
+			$.post("{{ route('get-products') }}", text_data, function (data, status) {
+				
+				response = JSON.parse(data)
+			})
+		});
+	}, false);
+</script>
 
-{{--	<button type="text" id="product_button" name="goProduct" onclick="document.location='{{ url('/product/create') }}'" class="form-btn semibold">Add product</button>--}}
 </body>
 
 </html>
