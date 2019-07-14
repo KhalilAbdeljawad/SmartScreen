@@ -31,7 +31,7 @@
             <!-- Form -->
             <form id="contact-us" action="{{route('product.store')}}" method="post" enctype="multipart/form-data">
                 <!-- Left Inputs -->
-                <div class="col-xs-6 wow animated slideInLeft" data-wow-delay=".5s">
+                <div class="col-xs-4 wow animated slideInLeft" data-wow-delay=".5s">
                     <!-- Name -->
                     <input type="text" name="name" id="name" required="required" class="form" placeholder="Name" />
                     <!-- Email -->
@@ -39,8 +39,13 @@
                     <!-- Subject -->
                     <input type="number" name="price" id="price" required="required" class="form" placeholder="Price" />
                 </div><!-- End Left Inputs -->
+
+                <div class="col-xs-4 wow animated slideInLeft" data-wow-delay=".5s">
+                    <!-- Subject -->
+                    <input type="text" name="tags" id="tags" required="required" class="form" placeholder='Tags (separate by ",")' />
+                </div>
                 <!-- Right Inputs -->
-                <div class="col-xs-6 wow animated slideInRight" data-wow-delay=".5s">
+                <div class="col-xs-4 wow animated slideInRight" data-wow-delay=".5s">
                     <!-- Message -->
                     <textarea name="description" id="description" class="form textarea"  placeholder="Description of the product"></textarea>
                 </div><!-- End Right Inputs -->
