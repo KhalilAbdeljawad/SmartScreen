@@ -37,7 +37,7 @@
                     <!-- Email -->
                     <input type="file" name="image" id="image" required="required" class="form" placeholder="image" />
                     <!-- Subject -->
-                    <input type="number" name="price" id="price" required="required" class="form" placeholder="Price" />
+                    <input type="number" name="price" id="price" required="required" class="form" min="0" step=".01" placeholder="Price" />
                 </div><!-- End Left Inputs -->
 
                 <div class="col-xs-4 wow animated slideInLeft" data-wow-delay=".5s">
@@ -52,13 +52,13 @@
                 <!-- Bottom Submit -->
                 <div class="relative fullwidth col-xs-12">
                     <!-- Send Button -->
-                    <button type="submit" id="submit" name="submit" class="form-btn semibold">Send Message</button> 
+                    <button type="submit" id="submit" name="submit" class="form-btn semibold">Submit</button> 
                 </div><!-- End Bottom Submit -->
 
                 <!-- Clear -->
                 <div class="clear"></div>
             </form>
-            <button type="text" id="home_button" name="goHome" onclick="document.location='{{ url('/') }}'" class="form-btn semibold">go home</button>
+            <button type="text" id="home_button" name="goHome" onclick="document.location='{{ url('/') }}'" class="form-btn semibold">Go Home</button>
             <!-- Your Mail Message -->
             <div class="mail-message-area">
                 <!-- Message -->
